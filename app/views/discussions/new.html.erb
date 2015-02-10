@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="page-header">
+    <h1>Discussions<small> Discuss the project.</small></h1>
+  </div>
+</div>
+
+
+<%= render "form" %>
+
+
+<% if !@project.discussions.blank? %>
+  <% for item in @project.discussions %>
+  <div class="container">
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <%= item.title %>
+  </div>
+  </div>
+  <div class="panel-body">
+  <p>
+    <%= item.description %> <br>
+    <%= link_to "Comment", new_discussion_comment_path(item) %> |
+    <%= link_to "Delete", item, :method => :delete %> |
+    <%= link_to "Edit", edit_project_discussion_path(@project, item) %> 
+  </p>
+  </div>
+  </div>
+  <% end %>
+<% end %>

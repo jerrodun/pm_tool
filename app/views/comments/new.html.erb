@@ -1,0 +1,43 @@
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('.move').sortable();
+      });
+  </script>
+
+
+<div class="container">
+  <div class="page-header">
+    <h1>Comments<small> Create a comment.</small></h1>
+  </div>
+</div>
+
+Discussion: <%= @discussion.title %> <%= link_to "Go back?", projects_path %>
+
+
+<%= render "form" %>
+
+<div class="move">
+<% if !@discussion.project.blank? %>
+  <% for item in @discussion.comments %>
+  <div class="container">
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <%= item.description %>
+    <p>
+      <%= link_to "Edit", edit_discussion_comment_path(@discussion, item) %> 
+    </p>
+      <% if user_signed_in? && current_user.has_liked?(item) %>
+        <% like = current_user.likes.find_by_comment_id(item.id) %>
+        <%= link_to "unlike", comment_like_path(item, like), class: "btn btn-danger like  ", method: :delete %>
+      <% else %>
+        <%= link_to "like", comment_likes_path(item), class: "btn btn-info like ", method: :post %>
+      <% end %>
+    </div>
+  </div>
+  </div>
+  </div>
+  <% end %>
+<% end %>
+

@@ -1,0 +1,47 @@
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+<div class="container">
+  <div class="page-header">
+    <h1>Tasks<small> Here are all of your tasks.</small></h1>
+  </div>
+  <p>Drag and drop each task to prioritize them. To reset the tasks to their original order just refresh the page! (It's a feature not a bug, of course)</p>
+</div>
+
+  <script>
+    $(document).ready(function() {
+      $('.move').sortable();
+      });
+
+
+    $("div").click(function(){
+    var index = $("div").index($(this));
+    var position =  index+1;
+    $('span').html(position);
+})
+  </script>
+
+
+<%= render "form" %>
+
+
+
+
+<div class="move">
+<% if !@project.tasks.blank? %>
+  <% for item in @project.tasks %>
+  <div class="container">
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <div class='move'><%= item.title %></div>
+  </div>
+  </div>
+  <div class="panel-body">
+  <p>
+    <div class='move'><%= item.description %></div>
+  </p>
+  <%= link_to "Edit", edit_project_task_path(@project, item) %> 
+  </div>
+  </div>
+  <% end %>
+<% end %>
+</div>
