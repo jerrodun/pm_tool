@@ -3,5 +3,3 @@ class NestedComment < ActiveRecord::Migration
     add_column :comments, :discussion_id, :integer
   end
 end
-
-

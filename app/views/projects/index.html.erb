@@ -5,33 +5,34 @@
 </div>
 
 <% @projects.each do |project| %>
-<div class="container">
-  <div class="panel panel-default">
-  <div class="panel-heading">
-  <%= project.title %>
-  </div>
-  </div>
-  <div class="panel-body">
-  <p>
-  <%= project.description %> 
-  </p>
-  <br>
-  <%= link_to "Discuss", new_project_discussion_path(project) %> |
-  <%= link_to "Tasks", new_project_task_path(project) %> |
-  <%= link_to "Edit", edit_project_path(project) %> |
-  <%= link_to "Delete", project, :method => :delete %> 
+<div class="panel panel-default">
+<div class="panel-heading">
+<%= project.title %>
+</div>
+</div>
+<div class="panel-body">
+<p>
+<%= project.description %> 
+</p>
+<br>
+<%= link_to "Discuss", new_project_discussion_path(project) %> |
+<%= link_to "Tasks", new_project_task_path(project) %> |
+<%= link_to "Edit", edit_project_path(project) %> |
+<%= link_to "Delete", project, :method => :delete %> 
 
-  <% if project.doc %>
-    <p>Document: <%= link_to project.doc.original_filename, "/uploads/#{@project.doc}", :target => "_blank" %></p>
-  <% end %>
+<% if project.doc %>
+  <p>Document: <%= link_to project.doc.original_filename, "/uploads/#{@project.doc}", :target => "_blank" %></p>
+<% end %>
 
 
-  </div>
-  </div>
+</div>
+</div>
 <%end%>
 
 <br>
 <br>
+
 <div class="container">
   <p><a class="btn btn-primary btn-lg" href="/projects/new" role="button">Create project</a></p>
 </div>
+
