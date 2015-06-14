@@ -8,7 +8,7 @@ To get PM_TOOL up and running:
  - rake db:migrate
  - rails server
 
-<img src="http://i.imgur.com/X9yzSKr.png" title="source: imgur.com" />
-<img src="http://i.imgur.com/lUJ9tKL.png" title="source: imgur.com" />
-<img src="http://i.imgur.com/6iMgdK9.png" title="source: imgur.com" />
-<img src="http://i.imgur.com/99TG1jR.png" title="source: imgur.com" />
+<img src="http://i.imgur.com/X9yzSKr.png" />
+<img src="http://i.imgur.com/lUJ9tKL.png" />
+<img src="http://i.imgur.com/6iMgdK9.png" />
+<img src="http://i.imgur.com/99TG1jR.png" />
